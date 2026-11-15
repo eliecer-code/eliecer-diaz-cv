@@ -1,7 +1,7 @@
 /** Public repository evidence reviewed on 2026-11-14. No inferred production metrics. */
 export const projects = [
   {
-    id:'voleibolclub', title:'VoleibolClub', variant:'club' as const, featured:true,
+    id:'gestalt-sport', title:'Gestalt Sport', variant:'club' as const, featured:true,
     description:'Administración deportiva, en una sola plataforma. Un SaaS que empieza en el voleibol y está pensado para acompañar a otros deportes.',
     tags:['ASP.NET Core','C#','PostgreSQL','React'],
     details:'Plataforma SaaS para administrar clubes deportivos, con el voleibol como punto de partida y una arquitectura pensada para otros deportes. Proyecto presentado en este portfolio; repositorio y demostración pública aún no disponibles.',

@@ -12,6 +12,6 @@ Revisión de repositorios públicos de `eliecer-code` realizada el 14 de noviemb
 
 Las URLs de demos de cv-creator y fungloria constan en sus metadatos de GitHub y devolvieron HTTP 200. Esa comprobación no constituye una auditoría funcional completa de las aplicaciones. Se omite una demo para survey-saas y Revit al no haber una URL pública confirmada.
 
-VoleibolClub conserva la descripción y tecnologías proporcionadas por el titular en el brief original. No se encontró un repositorio público con ese nombre; no se le atribuye uno distinto. Las vistas en el portfolio son composiciones conceptuales HTML y están etiquetadas, no capturas reales. El proyecto CV incluye traducción mediante un servicio externo según documentación; se evita la afirmación de privacidad absoluta del README original.
+Gestalt Sport es el nombre del SaaS confirmado por el titular. Conserva la descripción y tecnologías proporcionadas en el brief original. No hay un enlace de repositorio público confirmado para este proyecto; no se le atribuye uno distinto. Las vistas en el portfolio son composiciones conceptuales HTML y están etiquetadas, no capturas reales. El proyecto CV incluye traducción mediante un servicio externo según documentación; se evita la afirmación de privacidad absoluta del README original.
 
 El contenido editable está centralizado en `src/data/projects.ts`.
