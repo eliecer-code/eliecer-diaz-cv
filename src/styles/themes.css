@@ -1,0 +1,21 @@
+::view-transition-old(root),::view-transition-new(root){animation:none;mix-blend-mode:normal}
+::view-transition-new(root){z-index:9999}
+.theme-toggle .moon{display:none}
+html[data-theme=light] .theme-toggle .sun{display:none}
+html[data-theme=light] .theme-toggle .moon{display:block}
+nav{gap:28px}
+@media(max-width:760px){nav{gap:10px}.menu-toggle{margin-left:auto}.theme-toggle{width:32px}}
+html[data-theme=light]{--bg:#f8f9fc;--surface:#edf0f6;--text:#111827;--muted:#586174;--line:rgba(20,35,60,.15);color-scheme:light}
+html[data-theme=light] nav,html[data-theme=light] #nav-links.open{background:#f4f6fbf5}
+html[data-theme=light] #nav-links a{color:#334155}
+html[data-theme=light] #nav-links a.active,html[data-theme=light] #nav-links a:hover{color:#245db8}
+html[data-theme=light] .hero-role,html[data-theme=light] .project-info h3{color:var(--text)}
+html[data-theme=light] .tech-line,html[data-theme=light] .about-copy p,html[data-theme=light] .project-info p,html[data-theme=light] .expertise-list p,html[data-theme=light] .project-details summary,html[data-theme=light] .timeline time{color:#475569}
+html[data-theme=light] .project-links a{color:#245db8}
+html[data-theme=light] .tags li{color:#24518a;border-color:#aebed4}
+html[data-theme=light] .button:hover{background:#dbe6f8}
+html[data-theme=light] .button.primary:hover{background:#3276e5}
+html[data-theme=light] .menu-toggle{color:var(--text)}
+html[data-theme=light] .menu-toggle span{border-color:var(--text)}
+html[data-theme=light] .hero:before{opacity:.22}
+/* Product previews retain their own dark application surfaces in both themes. */

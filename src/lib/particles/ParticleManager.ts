@@ -28,6 +28,7 @@ class ParticleManager {
       threshold: 0,
     });
     const signal = this.controller.signal;
+    document.addEventListener("portfolio:language-change", this.onWindowResize, { signal });
     document.addEventListener("visibilitychange", this.onVisibility, {
       signal,
     });

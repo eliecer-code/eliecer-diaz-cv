@@ -1,6 +1,9 @@
 ---
 import '../styles/global.css';
 import '../styles/particles.css';
+import '../styles/themes.css';
+import ThemeToggle from '../components/ThemeToggle.astro';
+import LanguageToggle from '../components/LanguageToggle.astro';
 import '@fontsource/space-grotesk/latin-600.css';
 import '@fontsource/inter/latin-400.css';
 import '@fontsource/inter/latin-500.css';
@@ -14,9 +17,9 @@ import { projects } from '../data/projects';
 const experience=[{company:'Comsodes',role:'Desarrollador de software junior',date:'2022–2024',text:'Primera etapa profesional en desarrollo de software. Una base para seguir profundizando en la construcción y el mantenimiento de aplicaciones.'},{company:'CQ e Ingenieros',role:'Desarrollador de software',date:'2026',text:'Desarrollo de software en el contexto de proyectos de ingeniería.'},{company:'Freelance',role:'Desarrollador full stack',date:'2026',text:'Desarrollo independiente de aplicaciones web, conectando interfaces y servicios backend.'}];
 const skills=[['Backend','C# · .NET · ASP.NET Core · EF Core'],['Frontend','React · JavaScript · TypeScript · Astro'],['Bases de datos','PostgreSQL'],['Herramientas y otros','Python · Django · Java · Git · GitHub']];
 ---
-<!doctype html><html lang="es"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width"/><meta name="description" content="Portfolio de Eliecer Enrique Díaz Arrieta. Ingeniero de Sistemas y desarrollador backend especializado en C#, ASP.NET Core y PostgreSQL."/><meta name="theme-color" content="#050505"/><meta property="og:title" content="Eliecer Díaz — Ingeniería detrás de la experiencia"/><meta property="og:description" content="Desarrollo backend, aplicaciones web y soluciones con intención."/><title>Eliecer Díaz — Desarrollador backend</title><link rel="icon" href={`${import.meta.env.BASE_URL}favicon.svg`}/></head><body>
+<!doctype html><html lang="es"><head><script is:inline>try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"dark"}catch{document.documentElement.dataset.theme="dark"}</script><meta charset="UTF-8"/><meta name="viewport" content="width=device-width"/><meta name="description" content="Portfolio de Eliecer Enrique Díaz Arrieta. Ingeniero de Sistemas y desarrollador backend especializado en C#, ASP.NET Core y PostgreSQL."/><meta name="theme-color" content="#050505"/><meta property="og:title" content="Eliecer Díaz — Ingeniería detrás de la experiencia"/><meta property="og:description" content="Desarrollo backend, aplicaciones web y soluciones con intención."/><title>Eliecer Díaz — Desarrollador backend</title><link rel="icon" href={`${import.meta.env.BASE_URL}favicon.svg`}/></head><body>
 <a href="#contenido" class="skip">Saltar al contenido</a>
-<header class="nav-wrap"><nav aria-label="Navegación principal"><a class="brand" href="#inicio" aria-label="Eliecer Díaz, inicio">ED<span>.</span></a><button class="menu-toggle" aria-expanded="false" aria-controls="nav-links">Menú <span></span></button><div id="nav-links"><a href="#sobre-mi">Sobre mí</a><a href="#experiencia">Experiencia</a><a href="#proyectos">Proyectos</a><a href="#contacto">Contacto <span class="nav-dot"></span></a></div></nav></header>
+<header class="nav-wrap"><nav aria-label="Navegación principal"><a class="brand" href="#inicio" aria-label="Eliecer Díaz, inicio">ED<span>.</span></a><button class="menu-toggle" aria-expanded="false" aria-controls="nav-links">Menú <span></span></button><div id="nav-links"><a href="#sobre-mi">Sobre mí</a><a href="#experiencia">Experiencia</a><a href="#proyectos">Proyectos</a><a href="#contacto">Contacto <span class="nav-dot"></span></a></div><ThemeToggle/><LanguageToggle/></nav></header>
 <main id="contenido"><section class="hero particle-host" id="inicio"><ParticleCanvas preset="radial"/><div class="hero-copy" data-particle-exclude><h1>Eliecer<br/>Díaz<span>.</span></h1><p class="hero-role">Ingeniero de software /<br/>Desarrollador backend</p><p class="tech-line">C# · ASP.NET Core · PostgreSQL<br/>REST APIs · React · TypeScript</p><div class="hero-actions"><a class="button primary" href="#proyectos">Explorar proyectos <Arrow/></a><a class="text-link" href={contact.resume} download>Descargar CV <span aria-hidden="true">↓</span></a></div></div><div class="hero-scene" aria-label="Composición de interfaces conceptuales y código"><div class="hero-dashboard"><Dashboard/></div><div class="code-window"><div class="windowbar"><span class="windowdots"><i></i><i></i><i></i></span><span>ClubController.cs</span></div><pre><code><span class="comment">// Una buena experiencia empieza aquí.</span>
 <span class="blue">[ApiController]</span>
 <span class="blue">[Route</span>(<span class="green">"api/clubs"</span>)]
@@ -143,4 +146,3 @@ if (import.meta.hot) import.meta.hot.dispose(() => {
   lifecycle.abort();
 });
 </script></body></html>
-

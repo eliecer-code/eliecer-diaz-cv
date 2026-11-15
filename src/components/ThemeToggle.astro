@@ -1,0 +1,17 @@
+<button class="theme-toggle" aria-label="Cambiar tema" title="Cambiar tema" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><g class="sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></g><path class="moon" d="M20 15.5A8.5 8.5 0 0 1 8.5 4 8.5 8.5 0 1 0 20 15.5Z"/></svg></button>
+<script>
+function initTheme(){
+ const button=document.querySelector<HTMLButtonElement>('.theme-toggle');if(!button||button.dataset.ready)return;button.dataset.ready='true';button.setAttribute('aria-pressed',String(document.documentElement.dataset.theme==='light'));
+ button.addEventListener('click',async()=>{
+  if(button.disabled)return;const next=document.documentElement.dataset.theme==='light'?'dark':'light';
+  const apply=()=>{document.documentElement.dataset.theme=next;try{localStorage.setItem('theme',next);}catch{};button.setAttribute('aria-pressed',String(next==='light'));};
+  const transitionDocument=document as Document & {startViewTransition?:(callback:()=>void)=>{ready:Promise<void>;finished:Promise<void>}};
+  if(!transitionDocument.startViewTransition||matchMedia('(prefers-reduced-motion: reduce)').matches){apply();return;}
+  const rect=button.getBoundingClientRect(),x=rect.left+rect.width/2,y=rect.top+rect.height/2,r=Math.hypot(Math.max(x,innerWidth-x),Math.max(y,innerHeight-y));
+  button.disabled=true;
+  try{const transition=transitionDocument.startViewTransition(apply);await transition.ready;document.documentElement.animate({clipPath:[`circle(0px at ${x}px ${y}px)`,`circle(${r}px at ${x}px ${y}px)`]},{duration:650,easing:'cubic-bezier(.2,.7,.2,1)',pseudoElement:'::view-transition-new(root)'});await transition.finished;}finally{button.disabled=false;}
+ });
+}
+initTheme();document.addEventListener('astro:page-load',initTheme);
+</script>
+<style>.theme-toggle{display:grid;place-items:center;background:none;border:0;color:inherit;width:40px;height:40px;cursor:pointer;flex-shrink:0}.theme-toggle:hover{color:var(--blue)}.theme-toggle svg{width:20px;height:20px}</style>

@@ -1,0 +1,17 @@
+<div class="language-toggle" role="group" aria-label="Idioma">
+  <button type="button" data-set-language="es" aria-pressed="true" aria-label="Cambiar a español" data-language-control>ES</button>
+  <span aria-hidden="true">/</span>
+  <button type="button" data-set-language="en" aria-pressed="false" aria-label="Cambiar a inglés" data-language-control>EN</button>
+</div>
+<style>
+  .language-toggle{display:flex;align-items:center;gap:6px;flex-shrink:0;color:var(--muted,#92949b);font-size:11px}
+  button{appearance:none;border:0;background:transparent;color:inherit;padding:8px 3px;font:inherit;cursor:pointer;min-height:36px;min-width:28px}
+  button[aria-pressed="true"]{color:var(--blue,#4285f4);font-weight:600}
+  button:hover{color:var(--text,#f5f5f5)}
+  button:focus-visible{outline:2px solid var(--blue,#4285f4);outline-offset:2px;border-radius:3px}
+  @media(max-width:760px){.language-toggle{gap:2px;font-size:10px}button{min-width:25px}}
+</style>
+<script>
+  import { initLanguage } from '../lib/preferences/language';
+  initLanguage();
+</script>

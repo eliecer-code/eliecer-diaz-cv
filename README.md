@@ -46,3 +46,5 @@ Destino configurado: https://eliecer-code.github.io/eliecer-diaz-cv/ . La public
 ## Actualizar proyectos
 
 Editar src/data/projects.ts. Las vistas conceptuales se definen en SoftwarePreview.astro; cada proyecto admite enlaces de repositorio, demo y un repositorio relacionado. Mantener las descripciones respaldadas por las fuentes de docs/project-sources.md.
+
+Preferencias: el icono de tema alterna claro/oscuro con View Transitions (onda en navegadores compatibles; instantáneo con movimiento reducido). ES/EN traduce textos y atributos de accesibilidad en cliente. Ambas preferencias se guardan localmente; el PDF descargable conserva su idioma original.
