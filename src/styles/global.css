@@ -1,5 +1,232 @@
 @import 'tailwindcss';
 
+.project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin: 0 0 20px
+}
+
+.project-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 11px;
+    min-height: 32px;
+    color: #a9c4ff
+}
+
+.project-links a:hover {
+    color: #f5f5f5
+}
+
+.project-links svg {
+    width: 14px;
+    height: 14px
+}
+
+.all-projects {
+    margin-top: 45px
+}
+
+.software-preview {
+    background: #0e1725;
+    color: #f5f5f5;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 22px 55px #0009;
+    transform: rotate(-3deg);
+    transition: transform .5s cubic-bezier(.16, 1, .3, 1)
+}
+
+.project-preview:hover .software-preview,
+.project-preview:focus-visible .software-preview {
+    transform: rotate(0deg)
+}
+
+.software-body {
+    padding: 26px
+}
+
+.software-intro h4 {
+    font-size: 18px;
+    line-height: 1.3
+}
+
+.software-intro p {
+    font-size: 12px;
+    color: #a9c4ff;
+    margin-top: 8px;
+    line-height: 1.5
+}
+
+.software-workspace {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-top: 25px;
+    min-height: 165px;
+    align-items: center
+}
+
+.software-rows>div {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #ffffff12
+}
+
+.software-rows span {
+    font-size: 8px;
+    color: #a9c4ff
+}
+
+.software-rows strong {
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 1.5
+}
+
+.software-foot {
+    font: 8px 'JetBrains Mono', monospace;
+    line-height: 1.7;
+    margin-top: 23px;
+    color: #a8b8d0
+}
+
+.architecture-preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px
+}
+
+.architecture-preview span {
+    padding: 10px 8px;
+    background: #1b2b45;
+    font-size: 8px;
+    width: 100%;
+    text-align: center;
+    border-radius: 4px
+}
+
+.architecture-preview b {
+    font-weight: 400;
+    color: #4285f4;
+    font-size: 12px
+}
+
+.paper-preview {
+    background: #f1f3f8;
+    color: #1b2940;
+    padding: 18px 15px;
+    box-shadow: 0 8px 25px #0005;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    transform: rotate(3deg)
+}
+
+.paper-preview strong {
+    font-size: 15px;
+    font-family: 'Space Grotesk', sans-serif
+}
+
+.paper-preview span {
+    font-size: 8px;
+    font-weight: 500
+}
+
+.paper-preview i {
+    height: 2px;
+    background: #a8b7c9;
+    width: 100%
+}
+
+.paper-preview i:nth-child(2n) {
+    width: 80%
+}
+
+.question-preview {
+    padding: 15px;
+    background: #1b2b45;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px
+}
+
+.question-preview>span {
+    font-size: 8px;
+    color: #bfd2f3;
+    line-height: 1.5
+}
+
+.question-preview strong {
+    font-size: 13px;
+    line-height: 1.5
+}
+
+.question-preview>div {
+    display: flex;
+    gap: 6px
+}
+
+.question-preview i {
+    display: block;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #6b8eff;
+    border-radius: 50%
+}
+
+.foundation-preview {
+    padding: 20px 15px;
+    border-left: 1px solid #4285f4
+}
+
+.foundation-preview strong {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(18px, 2vw, 28px);
+    letter-spacing: -.03em;
+    line-height: 1.3
+}
+
+@media(max-width:760px) {
+    .secondary-projects .project-preview:has(.software-preview) {
+        height: auto
+    }
+
+    .software-body {
+        padding: 20px
+    }
+
+    .software-workspace {
+        gap: 12px
+    }
+
+    .software-preview .windowbar {
+        font-size: 7px
+    }
+
+    .software-rows strong {
+        font-size: 9px
+    }
+
+    .software-intro h4 {
+        font-size: 19px
+    }
+
+    .foundation-preview strong {
+        font-size: 18px
+    }
+
+    .software-foot {
+        font-size: 7px
+    }
+}
+
 :root {
     --bg: #050505;
     --surface: #111318;

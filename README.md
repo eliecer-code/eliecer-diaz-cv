@@ -14,7 +14,7 @@ La salida estática queda en `dist/`. Se puede alojar en cualquier servicio de h
 ## Antes de publicar
 
 - El CV está disponible en public/cv/hv-eliecerdiaz.pdf; reemplazar ese archivo para actualizarlo.
-- Confirmar responsabilidades laborales, tecnologías de los proyectos secundarios y enlaces de sus repositorios.
+- Confirmar las responsabilidades laborales y añadir capturas reales de los productos. Los proyectos públicos y sus fuentes están documentados en docs/project-sources.md.
 - Reemplazar las vistas conceptuales por capturas reales cuando estén disponibles.
 - Añadir URL canónica y metadatos sociales definitivos al conocer el dominio.
 
@@ -42,3 +42,7 @@ Las pruebas usan el código real de particles.js en una VM con DOM/Canvas simula
 ## GitHub Pages
 
 Destino configurado: https://eliecer-code.github.io/eliecer-diaz-cv/ . La publicación se realiza desde main mediante .github/workflows/deploy.yml. Cada push ejecuta pruebas, chequeo de tipos y build antes de desplegar. En local, abrir /eliecer-diaz-cv/ .
+
+## Actualizar proyectos
+
+Editar src/data/projects.ts. Las vistas conceptuales se definen en SoftwarePreview.astro; cada proyecto admite enlaces de repositorio, demo y un repositorio relacionado. Mantener las descripciones respaldadas por las fuentes de docs/project-sources.md.

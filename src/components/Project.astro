@@ -2,11 +2,14 @@
 import Dashboard from './Dashboard.astro';
 import ParticleCanvas from './effects/ParticleCanvas.astro';
 import Arrow from './Arrow.astro';
-interface Props { title: string; description: string; tags: string[]; variant?: 'club'|'engineering'|'football'; featured?: boolean; index: string; details: string }
-const {title,description,tags,variant='club',featured=false,index,details}=Astro.props;
+import SoftwarePreview from './SoftwarePreview.astro';
+interface Props { id?:string; title: string; description: string; tags: string[]; variant?: 'club'|'engineering'|'football'; preview?:'survey'|'revit'|'cv'|'foundation'; featured?: boolean; index: string; details: string; repository?:string; demo?:string; related?:string }
+const {title,description,tags,variant='club',preview,featured=false,index,details,repository,demo,related,id=variant}=Astro.props;
+const detailId='detalle-'+id;
 ---
 <article class:list={['project',{featured}]}>
- <div class="project-art particle-host"><ParticleCanvas preset="displacement"/><a href={'#detalle-'+variant} class="project-preview" aria-label={'Explorar '+title}><Dashboard variant={variant}/><span class="preview-action">Explorar proyecto <Arrow/></span></a><span class="project-art-caption" data-particle-exclude>{index} / INTERFAZ CONCEPTUAL · SIN DATOS REALES</span></div>
- <div class="project-info"><div><h3>{title}</h3><p>{description}</p><ul class="tags">{tags.map(t=><li>{t}</li>)}</ul></div><a class="round-link" href={'#detalle-'+variant} aria-label={'Ver detalles de '+title}><Arrow/></a></div>
- <details id={'detalle-'+variant} class="project-details"><summary>Acerca del proyecto <span>+</span></summary><p>{details}</p><p class="muted">La vista es una propuesta visual. Las capturas reales, el repositorio y la demostración pública están pendientes de incorporar.</p></details>
+ <div class="project-art particle-host"><ParticleCanvas preset="displacement"/><a href={'#'+detailId} class="project-preview" aria-label={'Explorar '+title}>{preview?<SoftwarePreview kind={preview}/>:<Dashboard variant={variant}/>}<span class="preview-action">Explorar proyecto <Arrow/></span></a><span class="project-art-caption" data-particle-exclude>{index} / VISTA CONCEPTUAL · NO ES UNA CAPTURA DEL PRODUCTO</span></div>
+ <div class="project-info"><div><h3>{title}</h3><p>{description}</p><ul class="tags">{tags.map(t=><li>{t}</li>)}</ul></div><a class="round-link" href={'#'+detailId} aria-label={'Ver detalles de '+title}><Arrow/></a></div>
+ <div class="project-links">{demo&&<a href={demo} target="_blank" rel="noopener noreferrer">Ver sitio <Arrow/></a>}{repository&&<a href={repository} target="_blank" rel="noopener noreferrer">Código en GitHub <Arrow/></a>}{related&&<a href={related} target="_blank" rel="noopener noreferrer">Columnetas y viguetas <Arrow/></a>}</div>
+ <details id={detailId} class="project-details"><summary>Acerca del proyecto <span>+</span></summary><p>{details}</p><p class="muted">{repository?'Las funciones y tecnologías se documentan en el repositorio enlazado. La composición visual es conceptual.':'Vista conceptual del proyecto. El código y la demo aún no tienen enlaces públicos en este portfolio.'}</p></details>
 </article>

@@ -1,0 +1,17 @@
+---
+interface Props { kind:'survey'|'revit'|'cv'|'foundation' }
+const {kind}=Astro.props;
+const content={
+  revit:{title:'Automatización BIM',file:'CQIng · Revit 2026',lead:'De la geometría al modelo.',rows:['Interfaz WPF / MVVM','Servicios de geometría','Generación con Revit API'],foot:'C# / .NET 8 / API de Revit'},
+  survey:{title:'Encuestas',file:'survey-saas · aplicación web',lead:'Preguntar. Escuchar. Entender.',rows:['Valoración','Selección múltiple','Respuesta abierta'],foot:'React → Express → Prisma → PostgreSQL'},
+  cv:{title:'Tu próximo paso',file:'cv-creator · editor de currículum',lead:'Tu trayectoria, bien contada.',rows:['Información personal','Experiencia profesional','Educación y habilidades'],foot:'Edición / Vista previa / Exportación PDF'},
+  foundation:{title:'Fundación La Gloria',file:'fungloria · sitio institucional',lead:'Salvando vidas.',rows:['Nuestra misión','Servicios a la comunidad','Una sola salud'],foot:'React / CSS / Animaciones AOS'},
+}[kind];
+---
+<div class:list={['software-preview',kind]}>
+ <div class="windowbar"><span class="windowdots"><i></i><i></i><i></i></span><span>{content.file}</span><span class="demo-label">Vista conceptual</span></div>
+ <div class="software-body"><div class="software-intro"><h4>{content.title}</h4><p>{content.lead}</p></div>
+ <div class="software-workspace"><div class="software-rows">{content.rows.map((row,i)=><div><span>{String(i+1).padStart(2,'0')}</span><strong>{row}</strong></div>)}</div>
+ {kind==='cv'?<div class="paper-preview"><strong>Tu nombre</strong><span>Perfil profesional</span><i></i><i></i><span>Experiencia</span><i></i><i></i><span>Formación</span><i></i></div>:kind==='revit'?<div class="architecture-preview"><span>Selección de elementos</span><b>↓</b><span>Análisis geométrico</span><b>↓</b><span>Generación en el modelo</span></div>:kind==='survey'?<div class="question-preview"><span>Vista de respuesta</span><strong>¿Cómo fue tu experiencia?</strong><div><i></i><i></i><i></i><i></i><i></i></div><span>Pregunta de valoración · Ejemplo</span></div>:<div class="foundation-preview"><strong>Comprensión.<br/>Inclusión.<br/>Esperanza.</strong></div>}
+ </div><div class="software-foot">{content.foot}</div></div>
+</div>
