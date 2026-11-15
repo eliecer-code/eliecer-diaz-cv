@@ -1,0 +1,104 @@
+/* Stable hosts keep drawing coordinates independent of animated mockups. */
+.particle-host {
+    position: relative;
+    isolation: isolate
+}
+
+.particle-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    pointer-events: none;
+    z-index: 0;
+    border-radius: inherit
+}
+
+.particle-canvas>canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    pointer-events: none
+}
+
+/* Feather the hero field before the constrained canvas ends, including parallax. */
+.hero>.particle-canvas {
+    mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent),
+        linear-gradient(to bottom, transparent, #000 7%, #000 90%, transparent);
+    mask-composite: intersect;
+}
+
+.particle-host>.particle-canvas~* {
+    position: relative;
+    z-index: 1
+}
+
+.hero.particle-host>.scroll-note,
+.hero.particle-host>.hero-coordinate {
+    position: absolute
+}
+
+.hero.particle-host:before {
+    z-index: -1
+}
+
+.timeline.particle-host {
+    overflow: visible
+}
+
+.timeline.particle-host .particle-canvas {
+    left: -8px;
+    width: calc(100% + 8px)
+}
+
+.particle-host .section-top {
+    z-index: 2
+}
+
+.particle-host .timeline-point {
+    transition: box-shadow .25s, background-color .25s
+}
+
+.timeline details[data-timeline-visible] .timeline-point {
+    box-shadow: 0 3px 12px #4285f430
+}
+
+.timeline details:hover .timeline-point,
+.timeline details:focus-within .timeline-point {
+    background: #a9c4ff;
+    box-shadow: 0 3px 12px #4285f444
+}
+
+@media(min-width:1000px) {
+    .hero-scene {
+        animation: none;
+        translate: 0 0
+    }
+
+    .hero[data-particles-visible] .hero-scene {
+        animation: particle-scene-float 8s ease-in-out infinite
+    }
+
+    @keyframes particle-scene-float {
+        50% {
+            translate: 0 -10px
+        }
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+    .hero[data-particles-visible] .hero-scene {
+        animation: none
+    }
+
+    .particle-host .timeline-point {
+        transition: none
+    }
+}
+
+@media(pointer:coarse) {
+    .hero[data-particles-visible] .hero-scene {
+        animation: none
+    }
+}

@@ -1,0 +1,11 @@
+---
+interface Props { variant?: 'club' | 'engineering' | 'football' }
+const {variant='club'}=Astro.props;
+const title={club:'VoleibolClub',engineering:'Gestión de proyectos',football:'Academia de fútbol'}[variant];
+const names=variant==='club'?['Equipo femenino · Sub 18','Equipo masculino · Mayores','Equipo mixto · Formación']:variant==='engineering'?['Diseño y planificación','Desarrollo del proyecto','Revisión y entrega']:['Categoría Sub 12','Categoría Sub 15','Categoría Sub 18'];
+---
+<div class:list={['dashboard',variant]}>
+ <div class="windowbar"><span class="windowdots"><i></i><i></i><i></i></span><span>{title.toLowerCase().replaceAll(' ','-')}.app</span><span class="demo-label">Vista conceptual</span></div>
+ <div class="dashbody"><aside class="dashside"><strong><span class="app-symbol">V</span>{title}</strong><span class="dashnav selected">Resumen</span><span class="dashnav">{variant==='engineering'?'Proyectos':'Equipos'}</span><span class="dashnav">Calendario</span><span class="dashnav">Administración</span><span class="dashside-bottom">Espacio de trabajo</span></aside>
+ <div class="dashmain"><div class="dashheading"><div><small>Tu espacio de trabajo</small><h3>Todo en su lugar.</h3></div><span class="avatar">ED</span></div><div class="dash-tabs"><span>Vista general</span><span>Actividad</span><span>Esta semana</span></div><div class="dash-feature"><div><small>{variant==='engineering'?'DEL PLAN A LA ENTREGA':'DENTRO Y FUERA DE LA CANCHA'}</small><h4>{variant==='engineering'?'Cada proyecto, conectado.':'Más equipo. Menos gestión.'}</h4><span>Organiza lo que mueve a tu equipo.</span></div><div class="court"><i></i><b></b></div></div><div class="table-heading"><strong>{variant==='engineering'?'Proyectos en curso':'Tus equipos'}</strong><span>Ver todos</span></div><div class="dash-table">{names.map((name,i)=><div><span class="team-icon">{String(i+1).padStart(2,'0')}</span><strong>{name}</strong><span class="status">{i===1?'En revisión':'Activo'}</span><span>Ver detalle</span></div>)}</div><div class="dash-foot"><span>Una plataforma. Todo conectado.</span><span>ASP.NET Core + React</span></div></div></div>
+</div>

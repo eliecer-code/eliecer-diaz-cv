@@ -1,0 +1,9 @@
+node_modules/
+dist/
+outputs/
+.astro/
+.npm-cache/
+.env
+.env.*
+!.env.example
+.openai/

@@ -1,0 +1,12 @@
+---
+import Dashboard from './Dashboard.astro';
+import ParticleCanvas from './effects/ParticleCanvas.astro';
+import Arrow from './Arrow.astro';
+interface Props { title: string; description: string; tags: string[]; variant?: 'club'|'engineering'|'football'; featured?: boolean; index: string; details: string }
+const {title,description,tags,variant='club',featured=false,index,details}=Astro.props;
+---
+<article class:list={['project',{featured}]}>
+ <div class="project-art particle-host"><ParticleCanvas preset="displacement"/><a href={'#detalle-'+variant} class="project-preview" aria-label={'Explorar '+title}><Dashboard variant={variant}/><span class="preview-action">Explorar proyecto <Arrow/></span></a><span class="project-art-caption" data-particle-exclude>{index} / INTERFAZ CONCEPTUAL · SIN DATOS REALES</span></div>
+ <div class="project-info"><div><h3>{title}</h3><p>{description}</p><ul class="tags">{tags.map(t=><li>{t}</li>)}</ul></div><a class="round-link" href={'#detalle-'+variant} aria-label={'Ver detalles de '+title}><Arrow/></a></div>
+ <details id={'detalle-'+variant} class="project-details"><summary>Acerca del proyecto <span>+</span></summary><p>{details}</p><p class="muted">La vista es una propuesta visual. Las capturas reales, el repositorio y la demostración pública están pendientes de incorporar.</p></details>
+</article>
